@@ -1,0 +1,18 @@
+#my answer
+select case when count(salary) = 0 then NULL else salary end as SecondHighestSalary from 
+(
+SELECT distinct salary FROM `employee`
+
+
+order by Salary desc limit 1 OFFSET 1
+) a
+
+
+#others answer
+select
+(
+SELECT distinct salary FROM `employee`
+
+
+order by Salary desc limit 1 OFFSET 1
+) as SecondHighestSalary
